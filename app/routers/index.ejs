@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("www/headers.ejs") %>
+</head>
+<body>
+    <form action="/" enctype="multipart/form-data" method="POST">
+        <div class="logo">
+            <h1>Nekotsuki</h1>
+            <p>A simple solutions for simple problems &mdash; created by <a href="https://bycat.one">ByCat</a></p>
+        </div>
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    <% if (files.length > 0) { %>
+    <div class="files">
+        <% for (let i = 0; i < files.length; i++) { %>
+            <a href="<%= files[i].replace(" ", "+") %>"><%= files[i] %></a>
+        <% } %>
+    </div>
+    <% } %>
+</body>
+</html>
